@@ -4,6 +4,9 @@ RUN addgroup -g 1000 cppdev \
   && adduser -u 1000 -G cppdev -h /home/cppdev -D cppdev
 
 RUN apk add \
+    mandoc \
+    mandoc-doc \
+    mandoc-apropos \
     neovim \
     neovim-doc \
     llvm12 \
@@ -29,6 +32,8 @@ RUN apk add \
     screen-doc \
     gawk \
     gawk-doc
+
+RUN makewhatis
 
 WORKDIR /home/cppdev
 
